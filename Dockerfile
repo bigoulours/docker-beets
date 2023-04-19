@@ -87,6 +87,7 @@ RUN \
     pylast \
     requests \
     requests_oauthlib \
+    beets-beatport4 \
     unidecode && \
   echo "**** cleanup ****" && \
   apk del --purge \
