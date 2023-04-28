@@ -44,6 +44,8 @@ RUN \
     nano \
     openjpeg \
     python3 \
+    busybox-suid \
+    busybox-openrc \
     sqlite-libs && \
   echo "**** compile mp3gain ****" && \
   mkdir -p \
@@ -104,6 +106,7 @@ HOME="/config"
 
 # copy local files
 COPY root/ /
+COPY init_cron.sh /etc/cont-init.d/
 
 # ports and volumes
 EXPOSE 8337
