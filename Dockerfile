@@ -46,7 +46,9 @@ RUN \
     python3 \
     busybox-suid \
     busybox-openrc \
+    cuetools \
     sqlite-libs && \
+  apk add shntool --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing && \
   echo "**** compile mp3gain ****" && \
   mkdir -p \
     /tmp/mp3gain-src && \
@@ -68,6 +70,10 @@ RUN \
   tar xzf /tmp/mp3val-src/mp3val.tar.gz --strip 1 && \
   make -f Makefile.linux && \
   cp -p mp3val /usr/bin && \
+  curl -o \
+  /usr/bin/split2flac -sL \
+    https://raw.githubusercontent.com/ftrvxmtrx/split2flac/master/split2flac && \
+  chmod +x /usr/bin/split2flac && \
   echo "**** install pip packages ****" && \
   if [ -z ${BEETS_VERSION+x} ]; then \
     BEETS_VERSION=$(curl -sL  https://pypi.python.org/pypi/beets/json |jq -r '. | .info.version'); \
