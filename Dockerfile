@@ -84,10 +84,10 @@ RUN \
     wheel && \
   pip3 install -U --no-cache-dir --find-links https://wheel-index.linuxserver.io/alpine-3.17/ \
     beautifulsoup4 \
-    beets==${BEETS_VERSION} \
+    https://github.com/beetbox/beets/tarball/master \
     beets-extrafiles \
     beetcamp \
-    discogs-client \
+    python3-discogs-client \
     flask \
     PyGObject \
     pillow \
